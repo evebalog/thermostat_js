@@ -7,9 +7,12 @@ Thermostat.prototype.getTemp = function () {
 };
 
 Thermostat.prototype.up = function () {
-  this.currentTemp += 1
+  this.currentTemp += 1;
 };
 
 Thermostat.prototype.down = function () {
-  this.currentTemp -= 1
+  if(this.getTemp() === 10) {
+  throw new Error("Temperature is at minimum");
+}
+  this.currentTemp -= 1;
 };
