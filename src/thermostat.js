@@ -2,6 +2,10 @@ function Thermostat() {
   this.currentTemp = 20;
 }
 
-Thermostat.prototype.temp = function () {
+Thermostat.prototype.getTemp = function () {
   return this.currentTemp;
+};
+
+Thermostat.prototype.up = function () {
+  this.currentTemp += 1
 };

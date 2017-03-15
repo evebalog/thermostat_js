@@ -3,7 +3,11 @@ describe('Thermostat', function() {
   thermostat = new Thermostat();
 
   it("starts at 20 degrees", function() {
-    expect(thermostat.temp()).toEqual(20);
+    expect(thermostat.getTemp()).toEqual(20);
   });
 
+  it("can increase temperature with up function", function() {
+    thermostat.up();
+    expect(thermostat.getTemp()).toEqual(21);
+  });
 });
