@@ -9,3 +9,7 @@ Thermostat.prototype.getTemp = function () {
 Thermostat.prototype.up = function () {
   this.currentTemp += 1
 };
+
+Thermostat.prototype.down = function () {
+  this.currentTemp -= 1
+};
