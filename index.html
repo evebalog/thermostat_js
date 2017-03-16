@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    a.test {
+      font-weight: bold;
+    }
+    </style>
+    <title>Thermostat</title>
+  </head>
+
+  <body>
+    <a href="https://code.jquery.com/jquery-3.1.1.js">jQuery</a>
+    <script src="jquery.js"></script>
+    <script>
+      $( document ).ready(function() {
+        $( "a" ).click(function( event ) {
+          alert( "As you can see, the link no longer took you to jquery.com" );
+          event.preventDefault();
+        });
+      });
+      $( "a" ).addClass( "test" );
+      $( "a" ).click(function( event ) {
+        event.preventDefault();
+        $( this ).hide( "slow" );
+      });
+      </script>
+
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        TEMPERATURE<br/>
+        up <button id="temperature-up">+</button>
+        down <button id="temperature-down">-</button>
+        reset <button id="temperature-reset">RESET</button><br/>
+        current temperature is: <span id="current-temp">??</span><br/>
+        POWER SAVING<br/>
+        <button id="powersaving-on">ON</button>
+        <button id="powersaving-off">OFF</button><br/>
+        power saving mode is: <span id="power-saving-status">on</span>
+
+      </p>
+    </section>
+    <script src="src/thermostat.js"></script>
+  </body>
+</html>

@@ -1,11 +1,12 @@
 'use strict';
 
 function Thermostat() {
-  this.currentTemp = 20;
+  this.MINIMUMTEMP = 10;
+  this.PSMAXIMUMTEMP = 25;
+  this.MAXIMUMTEMP = 32;
+  this.DEFAULTTEMP = 20;
+  this.currentTemp = this.DEFAULTTEMP;
   this.currentMode = true;
-  this.MINIMUMTEMP = 10
-  this.PSMAXIMUMTEMP = 25
-  this.MAXIMUMTEMP = 32
 }
 
 Thermostat.prototype.mode = function () {
@@ -14,8 +15,8 @@ Thermostat.prototype.mode = function () {
 
 Thermostat.prototype.changeMode = function () {
    this.currentMode = !this.currentMode;
-   if(this.getTemp() > 25 ) {
-     this.currentTemp = 25
+   if(this.getTemp() > this.PSMAXIMUMTEMP ) {
+     this.currentTemp = this.PSMAXIMUMTEMP;
    }
 };
 
@@ -24,10 +25,11 @@ Thermostat.prototype.getTemp = function () {
 };
 
 Thermostat.prototype.up = function () {
+  var max;
   if(this.mode() === false) {
-    var max = this.MAXIMUMTEMP;
+    max = this.MAXIMUMTEMP;
   } else {
-    var max = this.PSMAXIMUMTEMP;
+    max = this.PSMAXIMUMTEMP;
   }
   if(this.getTemp() === max) {
   throw new Error("Temperature is at maximum");
@@ -43,5 +45,17 @@ Thermostat.prototype.down = function () {
 };
 
 Thermostat.prototype.reset = function () {
-  this.currentTemp = 20
+  this.currentTemp = this.DEFAULTTEMP;
+};
+
+Thermostat.prototype.checkUsage = function () {
+  var usage;
+  if (this.getTemp() < 18) {
+    usage = "Low-usage";
+  } else if (this.getTemp() < 25){
+    usage = "Medium-usage";
+  } else {
+    usage = "High-usage";
+  }
+  return usage;
 };

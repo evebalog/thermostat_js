@@ -31,9 +31,11 @@ describe('Thermostat', function() {
     expect(thermostat.mode()).toEqual(true)
   })
 
-  it("can turn on power saving mode", function() {
+  it("can change power saving mode", function() {
     thermostat.changeMode();
     expect(thermostat.mode()).toEqual(false)
+    thermostat.changeMode();
+    expect(thermostat.mode()).toEqual(true)
   })
 
   it("doesn't go above 25 degrees if power save mode is on", function() {
@@ -55,4 +57,37 @@ describe('Thermostat', function() {
     thermostat.reset()
     expect(thermostat.getTemp()).toEqual(20)
   })
+
+  describe("Usage", function() {
+
+    it("confirms low-usage if temperature is 17", function() {
+      spyOn(thermostat, "getTemp").and.returnValue(17)
+      expect(thermostat.checkUsage()).toEqual("Low-usage")
+    })
+
+      it("confirms low-usage if temperature is lower than 17", function() {
+      spyOn(thermostat, "getTemp").and.returnValue(9)
+      expect(thermostat.checkUsage()).toEqual("Low-usage")
+    })
+
+    it("confirms medium-usage if temperature is 18", function(){
+      spyOn(thermostat, "getTemp").and.returnValue(18)
+      expect(thermostat.checkUsage()).toEqual("Medium-usage")
+    })
+
+    it("confirms medium-usage if temperature is higher than 18 but lower than 25", function(){
+      spyOn(thermostat, "getTemp").and.returnValue(24)
+      expect(thermostat.checkUsage()).toEqual("Medium-usage")
+    })
+
+    it("confirms high-usage if temperature is 25", function(){
+      spyOn(thermostat, "getTemp").and.returnValue(25)
+      expect(thermostat.checkUsage()).toEqual("High-usage")
+    })
+
+    it("confirms high-usage if temperature is higher than 25", function(){
+      spyOn(thermostat, "getTemp").and.returnValue(32)
+      expect(thermostat.checkUsage()).toEqual("High-usage")
+    })
+  });
 });
