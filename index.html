@@ -7,9 +7,18 @@
 
 <body>
   <h1> THERMOSTAT </h1>
+
   <section>
-    <h3>Current temperature in London: <span id="current-temperature"></span> &#x2103; </h3>
+
+    <form id="select-city">
+      <input id="current-city" type="text" placeholder="Enter a city"></input>
+      <input type="submit"></input>
+    </form>
+
+    <h3>Current temperature in <span id="current-city-display">London</span> : <span id="current-temperature"></span> &#x2103; </h3>
+
   </section>
+
   <section>
     <div id="boxed">
       <button id="temperature-reset">RESET</button>
@@ -22,29 +31,17 @@
     </div>
 <!-- onclick="reload()" -->
   </section>
-  <script>
+  <!-- <script>
     function reload() {
       location.reload();
     }
-  </script>
+  </script> -->
   <script src="src/thermostat.js"></script>
   <script src="jquery.js"></script>
   <script src="interface.js"></script>
 
-  <!-- <script type='text/javascript'>
-  $(document).ready(function() {
-    var thermostat = new Thermostat();
-    if (thermostat.currentTemp < 18) {
-      $('#conditional').css('viility', 'visible');
-    } else {
-      $('#conditional').css('visibility', 'hidden');
-    }
-  });
-  </script> -->
-
-  <p id="conditional">
-    <img src="/Users/evabalog/Desktop/cold.png">
-  </p>
+  <div id="conditional">
+  </div>
 
 </body>
 </html>

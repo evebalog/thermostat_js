@@ -2,14 +2,31 @@ h1 {
   color: pink;
 }
 
-/*body {
-  background: url(../../../../Users/evabalog/Desktop/cold.png) repeat 0 0;
-}*/
-
-#boxed {
+.ON {
   border: 30px solid green ;
 }
+.OFF {
+  border: 30px solid grey;
+}
 
+.Low-usage-img { background: url("public/cold.png");
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+}
+
+.Medium-usage-img { background: url("public/nikesh.png");
+  width: 500px;
+  height: 500px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.High-usage-img { background: url("public/hot.jpg");
+  width: 700px;
+  height: 500px;
+  background-size: cover;
+}
 .Low-usage {
   color: green;
 }
