@@ -2,7 +2,22 @@ h1 {
   color: pink;
 }
 
+/*body {
+  background: url(../../../../Users/evabalog/Desktop/cold.png) repeat 0 0;
+}*/
 
 #boxed {
-  border: 50px solid green ;
+  border: 30px solid green ;
+}
+
+.Low-usage {
+  color: green;
+}
+
+.Medium-usage {
+  color: black;
+}
+
+.High-usage {
+  color: red;
 }

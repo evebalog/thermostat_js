@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
+  <title>Thermostat</title>
+  <link rel="stylesheet" href="stylesheet.css">
+</head>
 
-    <title>Thermostat</title>
-    <link rel="stylesheet" href="stylesheet.css">
-  </head>
+<body>
+  <h1> THERMOSTAT </h1>
+  <section>
+    <h3>Current temperature in London: <span id="current-temperature"></span> &#x2103; </h3>
+  </section>
+  <section>
+    <div id="boxed">
+      <button id="temperature-reset">RESET</button>
+      TEMPERATURE:
+      <button id="temperature-up">&#8593;</button>
+      <span id="temperature"></span>
+      <button id="temperature-down">&#8595;</button>
+      POWER SAVING MODE: <span id="power-saving-status">ON</span>
+      <button  id="powersaving-change">CHANGE MODE</button>
+    </div>
+<!-- onclick="reload()" -->
+  </section>
+  <script>
+    function reload() {
+      location.reload();
+    }
+  </script>
+  <script src="src/thermostat.js"></script>
+  <script src="jquery.js"></script>
+  <script src="thermostat_jquery.js"></script>
 
-  <body>
-    <h1> THERMOSTAT </h1>
+  <!-- <script type='text/javascript'>
+  $(document).ready(function() {
+    var thermostat = new Thermostat();
+    if (thermostat.currentTemp < 18) {
+      $('#conditional').css('viility', 'visible');
+    } else {
+      $('#conditional').css('visibility', 'hidden');
+    }
+  });
+  </script> -->
 
-    <section>
-      <!-- <h1 id="temperature"></h1> -->
-      <p>
-        <div id="boxed">
-        TEMPERATURE<br/>
-        </div>
-        up <button id="temperature-up">+</button>
-        down <button id="temperature-down">-</button><br/>
-        reset <button id="temperature-reset">RESET</button><br/>
-        current temperature is: <span id="temperature"></span><br/>
-        POWER SAVING<br/>
-        <button id="powersaving-change">CHANGE MODE</button>
-        <!-- <button id="powersaving-off">OFF</button><br/> -->
-        power saving mode is: <span id="power-saving-status">on</span>
+  <p id="conditional">
+    <img src="/Users/evabalog/Desktop/cold.png">
+  </p>
 
-      </p>
-    </section>
-    <script src="src/thermostat.js"></script>
-    <script src="jquery.js"></script>
-    <script src="thermostat_jquery.js"></script>
-  </body>
+</body>
 </html>
