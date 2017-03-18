@@ -4,22 +4,17 @@
   <title>Thermostat</title>
   <link rel="stylesheet" href="stylesheet.css">
 </head>
-
 <body>
   <h1> THERMOSTAT </h1>
-
   <section>
-
     <form id="select-city">
       <input id="current-city" type="text" placeholder="Enter a city"></input>
       <input type="submit"></input>
     </form>
-
-    <h3>Current temperature in <span id="current-city-display">London</span> : <span id="current-temperature"></span> &#x2103; </h3>
-
+    <h3>Current temperature in <span id="current-city-display">London</span> :
+      <span id="current-temperature"></span> &#x2103;
+    </h3>
   </section>
-
-  <section>
     <div id="boxed">
       <button id="temperature-reset">RESET</button>
       TEMPERATURE:
@@ -29,13 +24,6 @@
       POWER SAVING MODE: <span id="power-saving-status">ON</span>
       <button  id="powersaving-change">CHANGE MODE</button>
     </div>
-<!-- onclick="reload()" -->
-  </section>
-  <!-- <script>
-    function reload() {
-      location.reload();
-    }
-  </script> -->
   <script src="src/thermostat.js"></script>
   <script src="jquery.js"></script>
   <script src="interface.js"></script>
